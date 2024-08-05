@@ -78,8 +78,12 @@ add-highlighter shared/markdown/inline/code region -match-capture (`+) (`+) fill
 add-highlighter shared/markdown/inline/text/ regex (\A|^\n)[^\n]+\n={2,}\h*\n\h*$ 0:title
 add-highlighter shared/markdown/inline/text/ regex (\A|^\n)[^\n]+\n-{2,}\h*\n\h*$ 0:header
 
+# Hashtag
+
+add-highlighter shared/markdown/inline/text/ regex '#\S+' 0:meta
+
 # Atx-style header
-add-highlighter shared/markdown/inline/text/ regex ^#[^\n]* 0:header
+add-highlighter shared/markdown/inline/text/ regex '^#{1,6} +[^\n]*' 0:header
 
 add-highlighter shared/markdown/inline/text/ regex (?<!\*)(\*([^\s*]|([^\s*](\n?[^\n*])*[^\s*]))\*)(?!\*) 1:+i
 add-highlighter shared/markdown/inline/text/ regex (?<!_)(_([^\s_]|([^\s_](\n?[^\n_])*[^\s_]))_)(?!_) 1:+i
